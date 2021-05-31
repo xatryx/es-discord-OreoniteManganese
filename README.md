@@ -64,5 +64,42 @@ npm run start
 
 We've included a `app.yaml` file that you can use to deploy this into AppEngine.
 
+-----
+
+#### 3. Docker Deployment
+
+First, clone this repo somewhere into your deployment machine
+
+```bash
+git clone https://github.com/xatryx/es-discord-OreoniteManganese.git
+```
+
+Then open `es-discord-OreoniteManganese` folder and create a `.env` file
+```bash
+cd es-discord-OreoniteManganese
+cp .env.example .env
+```
+
+Open the `.env` file with any text editors and here, define this below with your own Discord Bot Token, Supabase URL, and Supabase Service Token.
+```bash
+DISCORD_BOT_TOKEN=Your_Token_String
+SUPABASE_URL=Your_URL_String
+SUPABASE_KEY=Your_KEY_String
+```
+
+Now, instead of directly executing the code, we will containerize the entire source and initialize it inside as a production ready container. Run this line of code below, take note of the dot at the end of the line (it matters, really).
+
+```bash
+docker build -t oreonite-manganese .
+```
+
+You may start it up now.
+
+```bash
+docker-compose up -d
+```
+
+When it's finished, you will have your bot awakened and online in your Discord server to serve your purpose.
+
 ### License
 This project is licensed under **GNU General Public License v2.0 only**. Please have a look at `COPYING` for futher details.
