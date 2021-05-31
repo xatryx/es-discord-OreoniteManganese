@@ -13,11 +13,7 @@ bot.on("error", (err) => {
 });
 
 bot.on("messageCreate", (msg) => {
-    if(msg.content === "!ping") {
-        bot.createMessage(msg.channel.id, "Pong!");
-    } else if(msg.content === "!pong") {
-        bot.createMessage(msg.channel.id, "Ping!");
-    }
+    // do something
 });
 
 bot.connect();
