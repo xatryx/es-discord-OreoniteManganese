@@ -9,6 +9,7 @@
   "author": "Xatryx",
   "license": "GPL-2.0",
   "dependencies": {
+    "@supabase/postgrest-js": "^0.28.4",
     "dotenv": "^10.0.0",
     "eris": "^0.15.1"
   }
