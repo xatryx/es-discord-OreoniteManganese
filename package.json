@@ -1,0 +1,14 @@
+{
+  "name": "es-discord-oreonitemanganese",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Xatryx",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "eris": "^0.15.1"
+  }
+}
