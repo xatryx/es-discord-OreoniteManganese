@@ -15,9 +15,11 @@ cd es-discord-OreoniteManganese
 touch .env
 ```
 
-Open the `.env` file with any text editors and here, define this below with your own Discord Bot Token.
+Open the `.env` file with any text editors and here, define this below with your own Discord Bot Token, Supabase URL, and Supabase Service Token.
 ```bash
 DISCORD_BOT_TOKEN=Your_Token_String
+SUPABASE_URL=Your_URL_String
+SUPABASE_KEY=Your_KEY_String
 ```
 
 Now, fly with the wind !!!
