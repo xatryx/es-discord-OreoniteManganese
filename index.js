@@ -21,7 +21,7 @@ const channelUpsert = async (msg) => {
 const messageUpsert = async (msg) => {
     const { data, error } = await supabase
     .from('messages')
-    .upsert([{ message_id: `${msg.id}`, channel_id: `${msg.channel.id}`, message_score: 0 }])
+    .upsert([{ message_id: `${msg.id}`, channel_id: `${msg.channel.id}`, message_neutral_score: 0, message_abusive_score: 0, message_hate_score: 0 }])
 };
 
 var bot = new Eris(`Bot ${process.env.DISCORD_BOT_TOKEN}`);
