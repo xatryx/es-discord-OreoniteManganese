@@ -38,6 +38,7 @@ bot.on("messageCreate", async (msg) => {
     guildUpsert(msg);
     channelUpsert(msg);
     messageUpsert(msg);
+    msg.addReaction("💠");
 });
 
 bot.connect();
