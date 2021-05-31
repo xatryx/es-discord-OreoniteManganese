@@ -1,6 +1,8 @@
+require('dotenv').config()
+
 const Eris = require("eris");
 
-var bot = new Eris("Bot TOKEN");
+var bot = new Eris(`${process.env.DISCORD_BOT_TOKEN}`);
 
 bot.on("ready", () => {
     console.log("Ready!");
