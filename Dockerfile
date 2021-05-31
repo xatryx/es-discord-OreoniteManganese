@@ -4,12 +4,10 @@ MAINTAINER Ronan Harris
 
 WORKDIR /var/www/es-discord-oreonitemanganese
 
-COPY package*.json ./
+COPY package*.json /var/www/es-discord-oreonitemanganese
 
 RUN npm install
 
-COPY . .
+COPY . /var/www/es-discord-oreonitemanganese
 
 EXPOSE 8080
-
-CMD ["node", "index.js"]

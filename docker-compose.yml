@@ -8,3 +8,4 @@ services:
       - ./:/var/www/es-discord-oreonitemanganese
     ports:
       - 2222:8080
+    command: "npm run start"
