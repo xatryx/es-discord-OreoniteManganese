@@ -2,10 +2,10 @@ version: "3.1"
 services:
   bot:
     image: oreonite-manganese
-    user: "node"
-    working_dir: /var/www/es-discord-oreonitemanganese
+    working_dir: /usr/es-discord-oreonitemanganese
     volumes:
-      - ./:/var/www/es-discord-oreonitemanganese
+      - ./:/usr/es-discord-oreonitemanganese
+      - /usr/es-discord-oreonitemanganese/node_modules
     ports:
       - 2222:8080
     command: "npm run start"
