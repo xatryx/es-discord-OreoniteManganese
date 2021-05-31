@@ -1,0 +1,11 @@
+version: "3.1"
+services:
+  bot:
+    image: oreonite-manganese
+    user: "node"
+    working_dir: /var/www/es-discord-oreonitemanganese
+    volumes:
+      - ./:/var/www/es-discord-oreonitemanganese
+    expose:
+      - 2222:8080
+    command: "npm run start"
