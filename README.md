@@ -20,7 +20,7 @@ Please define these tables along with it's properties and datatypes below on you
 | Collumn Name | type | Primary | Foreign |
 |-|-|-|-|
 | message_id | `text` | yes | no |
-| channel_id | `varchar` | yes | yes |
+| channel_id | `varchar` | no | yes |
 | created | `date` | no | no |
 | message_neutral_score | `float4` | no | no |
 | message_abusive_score | `float4` | no | no |
