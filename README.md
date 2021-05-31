@@ -12,7 +12,7 @@ git clone https://github.com/xatryx/es-discord-OreoniteManganese.git
 Then open `es-discord-OreoniteManganese` folder and create a `.env` file
 ```bash
 cd es-discord-OreoniteManganese
-touch .env
+cp .env.example .env
 ```
 
 Open the `.env` file with any text editors and here, define this below with your own Discord Bot Token, Supabase URL, and Supabase Service Token.
@@ -24,7 +24,7 @@ SUPABASE_KEY=Your_KEY_String
 
 Now, fly with the wind !!!
 ```bash
-node index.js
+npm run start
 ```
 
 ### License
