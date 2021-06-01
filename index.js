@@ -58,7 +58,10 @@ bot.on("messageCreate", async (msg) => {
 bot.registerCommand(serverCommands[0], (msg) => {
     bot.createMessage(msg.channel.id, `Guild ID: ${msg.guildID} | Guild Name: ${msg.channel.guild.name}`);
 }, {
-    guildOnly: true
+    description: "checks the details of the current guild",
+    fullDescription: "this command would tells you everything about this guild, future work also includes overall guild data within our services.",
+    guildOnly: true,
+    usage: "run this command as-is to print a number of information related to the guild where the command get's executed"
 });
 
 bot.registerCommand(serverCommands[1], (msg) => {
