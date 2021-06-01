@@ -49,6 +49,8 @@ bot.on("messageCreate", async (msg) => {
             channelUpsert(msg);
             messageUpsert(msg);
             msg.addReaction("💠");
+        } else {
+            msg.addReaction("🪧");
         }
     }
 });
