@@ -45,4 +45,8 @@ bot.registerCommand("#guild", (msg) => {
     bot.createMessage(msg.channel.id, `Guild ID: ${msg.guildID} | Guild Name: ${msg.channel.guild.name}`)
 });
 
+bot.registerCommand("#channel", (msg) => {
+    bot.createMessage(msg.channel.id, `Guild ID: ${msg.channel.id} | Guild Name: ${msg.channel.name}`)
+});
+
 bot.connect();
