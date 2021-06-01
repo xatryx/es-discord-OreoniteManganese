@@ -41,4 +41,8 @@ bot.on("messageCreate", async (msg) => {
     msg.addReaction("💠");
 });
 
+bot.registerCommand("#guild", (msg) => {
+    bot.createMessage(msg.channel.id, `Guild ID: ${msg.guildID} | Guild Name: ${msg.channel.guild.name}`)
+});
+
 bot.connect();
