@@ -72,12 +72,17 @@ bot.registerCommand(serverCommands[2], (msg, arg) => {
     bot.createMessage(msg.channel.id, `Guild Admin Token has just been updated`);
 }, {
     argsRequired: true,
+    cooldown: 60000,
+    cooldownMessage: "hold tight, I'll let you know when I'm available to serve that purpose once more",
+    description: "updates the guild_admin_token for the current guild where the command gets executed",
+    fullDescription: "this command accepts an argument that will be used to update your preexisting guild_admin_token. You may change this as much as you want with 60 seconds of delay at the bare minimum between changes.",
     guildOnly: true,
     requirements: {
         permissions: {
             "administrator": true
         }
-    }
+    },
+    usage: "use any combination of alphabets, numbers, and symbols as your token argument. please be mindful when using single-quote, it won't work unless you wrap it around double quotes which would also be considered as part of the token :("
 });
 
 bot.connect();
