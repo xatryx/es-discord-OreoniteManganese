@@ -35,10 +35,12 @@ bot.on("error", (err) => {
 });
 
 bot.on("messageCreate", async (msg) => {
-    guildUpsert(msg);
-    channelUpsert(msg);
-    messageUpsert(msg);
-    msg.addReaction("💠");
+    if (!msg.author.bot) {
+        guildUpsert(msg);
+        channelUpsert(msg);
+        messageUpsert(msg);
+        msg.addReaction("💠");
+    }
 });
 
 bot.registerCommand("guild", (msg) => {
