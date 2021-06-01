@@ -1,5 +1,5 @@
 # Oreonite Manganese
-This is just a another simple Discord Bot that awaits to be developed into something fancy. It uses [Eris](https://github.com/abalabahaha/eris) and [Supabase-js](https://github.com/supabase/supabase-js).
+This is just a another simple Discord Bot that awaits to be developed into something fancy. It uses [Eris](https://github.com/abalabahaha/eris) and [Supabase-js](https://github.com/supabase/supabase-js). This repo does not cover any documentation to cover required the environment setup for both Supabase and Discord, therefore this repo assumes you had everything ready to plug this bot into, sorry.
 
 ### DB Requirements
 
