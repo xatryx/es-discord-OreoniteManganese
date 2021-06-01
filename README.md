@@ -9,6 +9,7 @@ Please define these tables along with it's properties and datatypes below on you
 | Collumn Name | type | Primary | Foreign |
 |-|-|-|-|
 | guild_id | `text` | yes | no |
+| guild_admin_token | `varchar` | no | no |
 
 #### channels
 | Collumn Name | type | Primary | Foreign |
