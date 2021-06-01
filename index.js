@@ -45,10 +45,14 @@ bot.on("messageCreate", async (msg) => {
 
 bot.registerCommand("guild", (msg) => {
     bot.createMessage(msg.channel.id, `Guild ID: ${msg.guildID} | Guild Name: ${msg.channel.guild.name}`);
+}, {
+    guildOnly: true
 });
 
 bot.registerCommand("channel", (msg) => {
     bot.createMessage(msg.channel.id, `Channel ID: ${msg.channel.id} | Channel Name: ${msg.channel.name}`);
+}, {
+    guildOnly: true
 });
 
 bot.connect();
