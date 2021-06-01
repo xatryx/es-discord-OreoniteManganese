@@ -102,5 +102,19 @@ docker-compose up -d
 
 When it's finished, you will have your bot awakened and online in your Discord server to serve your purpose.
 
+### Available Server Commands
+
+* `#guild`
+
+    Displays guild related info on this specific guild where the command is issued
+
+* `#channel`
+
+    Displays channel related info on this specific channel where the command is issued
+
+* `#token {arg}`
+
+    Updates the pre-existing `guild_admin_token`
+
 ### License
 This project is licensed under **GNU General Public License v2.0 only**. Please have a look at `COPYING` for futher details.
