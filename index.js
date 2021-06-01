@@ -24,6 +24,13 @@ const messageUpsert = async (msg) => {
     .upsert([{ message_id: `${msg.id}`, channel_id: `${msg.channel.id}`, message_neutral_score: 0, message_abusive_score: 0, message_hate_score: 0 }])
 };
 
+const guildTokenUpsert = async (guildid, newtoken) => {
+    const { data, error } = await supabase
+        .from('guilds')
+        .update([{guild_admin_token: `${newtoken}`}])
+        .eq('guild_id', `${guildid}`)
+};
+
 var bot = new CommandClient(`Bot ${process.env.DISCORD_BOT_TOKEN}`, {}, {description: "A Discord Bot Integration for Aegis Automation Services", owner: "Xatryx Team", prefix: "#"});
 
 bot.on("ready", () => {
@@ -53,6 +60,19 @@ bot.registerCommand("channel", (msg) => {
     bot.createMessage(msg.channel.id, `Channel ID: ${msg.channel.id} | Channel Name: ${msg.channel.name}`);
 }, {
     guildOnly: true
+});
+
+bot.registerCommand("token", (msg, arg) => {
+    guildTokenUpsert(msg.guildID, arg);
+    bot.createMessage(msg.channel.id, `Guild Admin Token has just been updated`);
+}, {
+    argsRequired: true,
+    guildOnly: true,
+    requirements: {
+        permissions: {
+            "administrator": true
+        }
+    }
 });
 
 bot.connect();
