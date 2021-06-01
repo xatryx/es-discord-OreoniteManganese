@@ -64,7 +64,10 @@ bot.registerCommand(serverCommands[0], (msg) => {
 bot.registerCommand(serverCommands[1], (msg) => {
     bot.createMessage(msg.channel.id, `Channel ID: ${msg.channel.id} | Channel Name: ${msg.channel.name}`);
 }, {
-    guildOnly: true
+    description: "checks the details of the current channel",
+    fullDescription: "this command would tells you everything about this channel, future work also includes channel health check.",
+    guildOnly: true,
+    usage: "run this command as-is to print a number of information related to the channel where the command get's executed"
 });
 
 bot.registerCommand(serverCommands[2], (msg, arg) => {
