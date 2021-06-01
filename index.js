@@ -5,6 +5,7 @@ import { CommandClient } from 'eris'
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
+const serverCommands = ["guild", "channel", "token"];
 
 const guildUpsert = async (msg) => {
     const { data, error } = await supabase
@@ -50,19 +51,19 @@ bot.on("messageCreate", async (msg) => {
     }
 });
 
-bot.registerCommand("guild", (msg) => {
+bot.registerCommand(serverCommands[0], (msg) => {
     bot.createMessage(msg.channel.id, `Guild ID: ${msg.guildID} | Guild Name: ${msg.channel.guild.name}`);
 }, {
     guildOnly: true
 });
 
-bot.registerCommand("channel", (msg) => {
+bot.registerCommand(serverCommands[1], (msg) => {
     bot.createMessage(msg.channel.id, `Channel ID: ${msg.channel.id} | Channel Name: ${msg.channel.name}`);
 }, {
     guildOnly: true
 });
 
-bot.registerCommand("token", (msg, arg) => {
+bot.registerCommand(serverCommands[2], (msg, arg) => {
     guildTokenUpsert(msg.guildID, arg);
     bot.createMessage(msg.channel.id, `Guild Admin Token has just been updated`);
 }, {
