@@ -11,13 +11,13 @@ const serverCommands = ["guild", "channel", "token", "refresh"];
 const guildUpsert = async (msg) => {
     const { data, error } = await supabase
         .from('guilds')
-        .upsert([{ guild_id: `${msg.guildID}` }])
+        .upsert([{ guild_id: `${msg.guildID}`, guild_name: `${msg.channel.guild.name}`, guild_icon_url: `${msg.channel.guild.dynamicIconURL("png", 1024)}` }])
 };
 
 const channelUpsert = async (msg) => {
     const { data, error } = await supabase
         .from('channels')
-        .upsert([{ channel_id: `${msg.channel.id}`, guild_id: `${msg.guildID}` }])
+        .upsert([{ channel_id: `${msg.channel.id}`, guild_id: `${msg.guildID}`, channel_name: `${msg.channel.name}` }])
 };
 
 const messageUpsert = async (msg) => {
