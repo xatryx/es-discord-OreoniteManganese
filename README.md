@@ -115,7 +115,7 @@ When it's finished, you will have your bot awakened and online in your Discord s
 
     Displays channel related info on this specific channel where the command is issued
 
-* `#token {arg}`
+* `#token {oldtoken} {newtoken}`
 
     Updates the pre-existing `guild_admin_token`
 
