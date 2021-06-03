@@ -10,12 +10,15 @@ Please define these tables along with it's properties and datatypes below on you
 |-|-|-|-|
 | guild_id | `text` | yes | no |
 | guild_admin_token | `varchar` | no | no |
+| guild_name | `varchar` | no | no |
+| guild_icon_url | `varchar` | no | no |
 
 #### channels
 | Collumn Name | type | Primary | Foreign |
 |-|-|-|-|
 | channel_id | `text` | yes | no |
 | guild_id | `varchar` | no | yes |
+| channel_name | `varchar` | no | no |
 
 #### messages
 | Collumn Name | type | Primary | Foreign |
