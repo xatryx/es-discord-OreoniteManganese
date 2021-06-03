@@ -98,7 +98,7 @@ bot.registerCommand(serverCommands[2], async (msg, arg) => {
     cooldown: 60000,
     cooldownMessage: "oh c'mon gimme a break",
     description: "updates the guild_admin_token for the current guild where the command gets executed",
-    fullDescription: "this command accepts an argument that will be used to update your preexisting guild_admin_token. You may change this as much as you want with 60 seconds of delay at the bare minimum between changes.",
+    fullDescription: "this command accepts two arguments that will be used to update your preexisting guild_admin_token. The first argument is your current token, and the second one is the new one. You may change this as much as you want with 60 seconds of delay at the bare minimum between changes.",
     guildOnly: true,
     requirements: {
         permissions: {
