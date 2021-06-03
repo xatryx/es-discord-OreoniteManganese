@@ -26,11 +26,14 @@ const messageUpsert = async (msg) => {
     .upsert([{ message_id: `${msg.id}`, channel_id: `${msg.channel.id}`, message_neutral_score: 0, message_abusive_score: 0, message_hate_score: 0 }])
 };
 
-const guildTokenUpsert = async (guildid, newtoken) => {
+const guildTokenUpsert = async (guildid, oldtoken, newtoken) => {
     const { data, error } = await supabase
         .from('guilds')
         .update([{guild_admin_token: `${newtoken}`}])
         .eq('guild_id', `${guildid}`)
+        .eq('guild_admin_token', `${oldtoken}`)
+
+    return data
 };
 
 var bot = new CommandClient(`Bot ${process.env.DISCORD_BOT_TOKEN}`, {}, {description: "A Discord Bot Integration for Aegis Automation Services", owner: "Xatryx Team", prefix: "#"});
@@ -82,9 +85,14 @@ bot.registerCommand(serverCommands[1], (msg) => {
     usage: "run this command as-is to print a number of information related to the channel where the command get's executed"
 });
 
-bot.registerCommand(serverCommands[2], (msg, arg) => {
-    guildTokenUpsert(msg.guildID, arg);
-    bot.createMessage(msg.channel.id, `Guild Admin Token has just been updated`);
+bot.registerCommand(serverCommands[2], async (msg, arg) => {
+    const data = await guildTokenUpsert(msg.guildID, arg[0], arg[1]);
+    
+    if (data != null) {
+        bot.createMessage(msg.channel.id, `Guild Admin Token has just been updated`);
+    } else {
+        bot.createMessage(msg.channel.id, `Guild Admin Token cannot be updated`);
+    }
 }, {
     argsRequired: true,
     cooldown: 60000,
