@@ -1,6 +1,6 @@
 {
   "name": "es-discord-oreonitemanganese",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "an integration bot for Xatryx Aegis automation services",
   "main": "index.js",
   "scripts": {
