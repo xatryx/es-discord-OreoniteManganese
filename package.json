@@ -13,6 +13,7 @@
   "dependencies": {
     "@supabase/postgrest-js": "^0.28.4",
     "@supabase/supabase-js": "^1.11.17",
+    "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "eris": "^0.15.1"
   }
