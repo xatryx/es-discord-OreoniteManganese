@@ -116,5 +116,9 @@ When it's finished, you will have your bot awakened and online in your Discord s
 
     Updates the pre-existing `guild_admin_token`
 
+* `#refresh`
+
+    Updates an the existing row or initiates a new one to take Guild and Channel related changes into effect.
+
 ### License
 This project is licensed under **GNU General Public License v2.0 only**. Please have a look at `COPYING` for futher details.
