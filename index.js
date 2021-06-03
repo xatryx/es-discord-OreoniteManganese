@@ -6,7 +6,7 @@ import axios from 'axios'
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
-const serverCommands = ["guild", "channel", "token"];
+const serverCommands = ["guild", "channel", "token", "refresh"];
 
 const guildUpsert = async (msg) => {
     const { data, error } = await supabase
@@ -98,6 +98,16 @@ bot.registerCommand(serverCommands[2], (msg, arg) => {
         }
     },
     usage: "use any combination of alphabets, numbers, and symbols as your token argument. please be mindful when using single-quote, it won't work unless you wrap it around double quotes which would also be considered as part of the token :("
+});
+
+bot.registerCommand(serverCommands[3], (msg) => {
+    guildUpsert(msg);
+    channelUpsert(msg);
+    bot.createMessage(msg.channel.id, "Fresh as the winds blow..");
+}, {
+    description: "refreshes the bot from spacing out too long",
+    fullDescription: "this command could help you to solve issues where changes to Guild Name etc has not been recorded by the this poor Bot :(.",
+    guildOnly: true,
 });
 
 bot.connect();
