@@ -23,10 +23,10 @@ const channelUpsert = async (msg) => {
 };
 
 // Update an existing `Message` or Insert a new row of `Message`
-const messageUpsert = async (msg) => {
+const messageUpsert = async (msg, neutral_score, abusive_score, hate_score) => {
     const { data, error } = await supabase
     .from('messages')
-    .upsert([{ message_id: `${msg.id}`, channel_id: `${msg.channel.id}`, message_neutral_score: 0, message_abusive_score: 0, message_hate_score: 0 }])
+    .upsert([{ message_id: `${msg.id}`, channel_id: `${msg.channel.id}`, message_neutral_score: neutral_score, message_abusive_score: abusive_score, message_hate_score: hate_score }])
 };
 
 // Update an existing `guild_admin_token` for a matching `guild_id` and `oldtoken` input
@@ -57,18 +57,14 @@ bot.on("error", (err) => {
 bot.on("messageCreate", async (msg) => {
     if (!msg.author.bot) {
         if (msg.prefix != "#") {
+
+            const { normal, abusive, hate } = await abusivePrediction(msg.content);
+
             guildUpsert(msg);
             channelUpsert(msg);
-            messageUpsert(msg);
-
-            // Still don't know where the data should go
-            const {
-                normal,
-                abusive,
-                hate_speech,
-              } = await abusivePrediction(msg.content)
+            messageUpsert(msg, normal, abusive, hate);
             
-            bot.createMessage(msg.channel.id, `Normal: ${normal}, Abusive: ${abusive}, Hate-speech: ${hate_speech}`);
+            bot.createMessage(msg.channel.id, `Normal: ${normal}, Abusive: ${abusive}, Hate-speech: ${hate}`);
 
             msg.addReaction("💠");
         } else {
