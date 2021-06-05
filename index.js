@@ -66,8 +66,10 @@ bot.on("messageCreate", async (msg) => {
                 normal,
                 abusive,
                 hate_speech,
-              } = abusivePrediction(msg)
-              
+              } = await abusivePrediction(msg.content)
+            
+            bot.createMessage(msg.channel.id, `Normal: ${normal}, Abusive: ${abusive}, Hate-speech: ${hate_speech}`);
+
             msg.addReaction("💠");
         } else {
             msg.addReaction("🪧");
