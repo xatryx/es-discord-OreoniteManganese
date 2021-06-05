@@ -1,7 +1,7 @@
 import config from 'dotenv/config'
 import { createClient } from '@supabase/supabase-js'
 import { CommandClient } from 'eris'
-import axios from 'axios'
+import { abusivePrediction } from "./prediction"
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
@@ -60,14 +60,14 @@ bot.on("messageCreate", async (msg) => {
             guildUpsert(msg);
             channelUpsert(msg);
             messageUpsert(msg);
-            axios({
-                method: 'post',
-                url: 'https://asia-southeast2-aegis-313000.cloudfunctions.net/aegis-ml-trigger',
-                data: {
-                    message_id: `${msg.id}`,
-                    message: `${msg.content}`
-                }
-            })
+
+            // Still don't know where the data should go
+            const {
+                normal,
+                abusive,
+                hate_speech,
+              } = abusivePrediction(msg)
+              
             msg.addReaction("💠");
         } else {
             msg.addReaction("🪧");
