@@ -1,8 +1,8 @@
+import config from 'dotenv/config'
 import { BertWordPieceTokenizer } from "tokenizers"
 import vertexAi, { helpers } from "@google-cloud/aiplatform"
+import fs from 'fs'
 
-// Service account vertex ai user
-import credentials from "../credentials/xxxxx.json"
 
 export async function abusivePrediction(message) {
   const { attention_mask, input_ids } = await encoding({ message })
@@ -44,12 +44,12 @@ export async function predictFromVertexAI({
   input_ids,
 }) {
 
-    // I have a problem when write it on env here maybe just hardcoded the endpoint and apiEndpoint ?
-  const endpoint =
-    "projects/xxxxx/locations/xxxxxxxx/endpoints/xxxxxxxxx"
+  const endpoint = process.env.ENDPOINT
+
+  const credentials = JSON.parse(fs.readFileSync(process.env.CREDENTIALS_DIR, 'utf8'));
 
   const clientOptions = {
-    apiEndpoint: "asia-southeast1-aiplatform.googleapis.com",
+    apiEndpoint: process.env.API_ENDPOINT,
     credentials: credentials,
   }
 

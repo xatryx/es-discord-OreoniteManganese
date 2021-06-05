@@ -1,7 +1,7 @@
 import config from 'dotenv/config'
 import { createClient } from '@supabase/supabase-js'
 import { CommandClient } from 'eris'
-import { abusivePrediction } from "./prediction"
+import { abusivePrediction } from "./prediction.js"
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
@@ -61,7 +61,6 @@ bot.on("messageCreate", async (msg) => {
             channelUpsert(msg);
             messageUpsert(msg);
 
-            // Still don't know where the data should go
             const {
                 normal,
                 abusive,

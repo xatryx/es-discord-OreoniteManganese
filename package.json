@@ -11,10 +11,12 @@
   "license": "GPL-2.0",
   "type": "module",
   "dependencies": {
+    "@google-cloud/aiplatform": "^1.7.1",
     "@supabase/postgrest-js": "^0.28.4",
     "@supabase/supabase-js": "^1.11.17",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
-    "eris": "^0.15.1"
+    "eris": "^0.15.1",
+    "tokenizers": "^0.7.0"
   }
 }
