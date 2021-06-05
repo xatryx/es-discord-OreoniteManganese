@@ -7,7 +7,7 @@ import fs from 'fs'
 export async function abusivePrediction(message) {
   const { attention_mask, input_ids } = await encoding({ message })
 
-  const { normal, abusive, hate_speech } = await predictFromVertexAI({
+  const { normal, abusive, hate } = await predictFromVertexAI({
     attention_mask,
     input_ids,
   })
@@ -15,7 +15,7 @@ export async function abusivePrediction(message) {
   return {
     normal,
     abusive,
-    hate_speech,
+    hate,
   }
 }
 
@@ -79,12 +79,12 @@ export async function predictFromVertexAI({
 
     const normal = predict[0].numberValue
     const abusive = predict[1].numberValue
-    const hate_speech = predict[2].numberValue
+    const hate = predict[2].numberValue
 
     return {
       normal,
       abusive,
-      hate_speech,
+      hate,
     }
   }
 }
