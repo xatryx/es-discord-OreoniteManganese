@@ -1,11 +1,13 @@
 import config from 'dotenv/config'
 import { createClient } from '@supabase/supabase-js'
 import { CommandClient } from 'eris'
+import { PostgrestClient } from '@supabase/postgrest-js'
 import axios from 'axios'
 
 const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+// const supabaseKey = process.env.SUPABASE_KEY;
+const supabaseSchema = process.env.SCHEMA_NAME;
+const supabase = new PostgrestClient(supabaseUrl, {schema: supabaseSchema });
 const serverCommands = ["guild", "channel", "token", "refresh"];
 
 // Update an existing `Guild` or Insert a new row of `Guild`
