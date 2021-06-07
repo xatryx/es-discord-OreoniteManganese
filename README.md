@@ -89,6 +89,7 @@ Open the `.env` file with any text editors and here, define this below with your
 DISCORD_BOT_TOKEN=Your_Token_String
 SUPABASE_URL=Your_URL_String
 SUPABASE_KEY=Your_KEY_String
+SCHEMA_NAME=Your_Schema_Name
 ```
 
 Now, instead of directly executing the code, we will containerize the entire source and initialize it inside as a production ready container. Run this line of code below, take note of the dot at the end of the line (it matters, really).
