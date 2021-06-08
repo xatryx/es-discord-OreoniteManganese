@@ -1,8 +1,9 @@
+import config from 'dotenv/config'
 import { BertWordPieceTokenizer } from "tokenizers"
 import vertexAi, { helpers } from "@google-cloud/aiplatform"
 
 // Service account vertex ai user
-import credentials from "../credentials/xxxxx.json"
+import credentials from "./credentials.json"
 
 export async function abusivePrediction(message) {
   const { attention_mask, input_ids } = await encoding({ message })
@@ -44,9 +45,7 @@ export async function predictFromVertexAI({
   input_ids,
 }) {
 
-    // I have a problem when write it on env here maybe just hardcoded the endpoint and apiEndpoint ?
-  const endpoint =
-    "projects/xxxxx/locations/xxxxxxxx/endpoints/xxxxxxxxx"
+  const endpoint = process.env.ENDPOINT_PATH;
 
   const clientOptions = {
     apiEndpoint: "asia-southeast1-aiplatform.googleapis.com",
