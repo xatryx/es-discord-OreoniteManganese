@@ -1,5 +1,5 @@
 import config from 'dotenv/config'
-// import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js'
 import { PostgrestClient } from '@supabase/postgrest-js'
 import { CommandClient } from 'eris'
 import { abusivePrediction } from "./prediction.js"
