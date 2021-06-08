@@ -1,11 +1,11 @@
 import config from 'dotenv/config'
-import { createClient } from '@supabase/supabase-js'
+// import { createClient } from '@supabase/supabase-js'
 import { PostgrestClient } from '@supabase/postgrest-js'
 import { CommandClient } from 'eris'
 import { abusivePrediction } from "./prediction.js"
 
 const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
+// const supabaseKey = process.env.SUPABASE_KEY;
 const schema = process.env.SCHEMA_NAME;
 const supabase = new PostgrestClient(supabaseUrl, {schema: schema});
 const serverCommands = ["guild", "channel", "token", "refresh"];
@@ -66,7 +66,7 @@ bot.on("messageCreate", async (msg) => {
             channelUpsert(msg);
             messageUpsert(msg, normal, abusive, hate);
             
-            bot.createMessage(msg.channel.id, `Normal: ${normal}, Abusive: ${abusive}, Hate-speech: ${hate}`);
+            // bot.createMessage(msg.channel.id, `Normal: ${normal}, Abusive: ${abusive}, Hate-speech: ${hate}`);
 
             msg.addReaction("💠");
         } else {
