@@ -4,7 +4,7 @@
   "description": "an integration bot for Xatryx Aegis automation services",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=8080 node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Xatryx",
