@@ -56,6 +56,7 @@ DISCORD_BOT_TOKEN=Your_Token_String
 SUPABASE_URL=Your_URL_String
 SUPABASE_KEY=Your_KEY_String
 SCHEMA_NAME=Your_Schema_Name
+ENDPOINT_PATH=Your_endpoint_path_from_vertexAI
 ```
 
 Now, fly with the wind !!!
