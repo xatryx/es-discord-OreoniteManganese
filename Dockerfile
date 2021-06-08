@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:12-slim
 
 LABEL maintainer="Ronan Harris,M. Hanif Azhary"
 LABEL version="3.2"
