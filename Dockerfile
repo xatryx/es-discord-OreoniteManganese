@@ -6,7 +6,8 @@ LABEL version="3.2"
 # Create and change to the app directory.
 WORKDIR /usr/es-discord-oreonitemanganese
 
-# Copy application dependency manifests to the container image.
+# Copy require files to the container image.
+COPY credentials.json ./
 COPY package.json ./
 
 # Install node dependencies
