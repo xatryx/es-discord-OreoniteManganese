@@ -12,5 +12,5 @@
 # limitations under the License.
 
 # [START es-discord-OreoniteManganese_yaml]
-runtime: nodejs14
+runtime: nodejs12
 # [END es-discord-OreoniteManganese_yaml]

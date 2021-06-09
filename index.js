@@ -66,7 +66,7 @@ bot.on("messageCreate", async (msg) => {
             channelUpsert(msg);
             messageUpsert(msg, normal, abusive, hate);
             
-            // bot.createMessage(msg.channel.id, `Normal: ${normal}, Abusive: ${abusive}, Hate-speech: ${hate}`);
+            bot.createMessage(msg.channel.id, `Normal: ${normal}, Abusive: ${abusive}, Hate-speech: ${hate}`);
 
             msg.addReaction("💠");
         } else {
